@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Q8d-yy-FWK">
+    <device id="ipad12_9rounded" orientation="landscape" layout="fullscreen" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Spells-->
+        <scene sceneID="4gI-ZE-Dv6">
+            <objects>
+                <navigationController id="vta-fD-sq6" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Spells" id="BQ7-qE-OaG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MyE-xs-QPx">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="oxq-Cc-xNo" kind="relationship" relationship="rootViewController" id="Ogp-1Q-8uB"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b8x-3V-bZy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="149"/>
+        </scene>
+        <!--Spells-->
+        <scene sceneID="TKu-P5-hFL">
+            <objects>
+                <viewController id="oxq-Cc-xNo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ih3-JF-pbj">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="7ub-kL-RAY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Spells" id="Q3y-g2-PR5"/>
+                    <navigationItem key="navigationItem" id="uwX-7D-BdT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CmU-7r-B8E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1011" y="149"/>
+        </scene>
+        <!--Monsters-->
+        <scene sceneID="DIm-w4-fRO">
+            <objects>
+                <navigationController id="laY-qs-QTS" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Monsters" id="uaE-rK-LRd"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xkm-4W-5wu">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="TbK-C3-Sb8" kind="relationship" relationship="rootViewController" id="lAK-eU-Pt1"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3so-Pl-wvl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="326" y="-945"/>
+        </scene>
+        <!--Monsters-->
+        <scene sceneID="u3U-24-fdW">
+            <objects>
+                <viewController id="TbK-C3-Sb8" customClass="MonstersViewController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pd0-vh-jJb">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-D8-ADA">
+                                <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RAA-f0-v6B">
+                                        <rect key="frame" x="0.0" y="28" width="1366" height="51.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAA-f0-v6B" id="cyd-3K-dud">
+                                            <rect key="frame" x="0.0" y="0.0" width="1366" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="FeM-Bs-u6g" kind="show" identifier="MonsterDetail" id="qav-C4-m63"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rtv-2v-I0l">
+                                        <rect key="frame" x="0.0" y="79.5" width="1366" height="51.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rtv-2v-I0l" id="4DY-TJ-Cjk">
+                                            <rect key="frame" x="0.0" y="0.0" width="1366" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCc-xD-YIF">
+                                        <rect key="frame" x="0.0" y="131" width="1366" height="51.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sCc-xD-YIF" id="aoL-Ur-4Sf">
+                                            <rect key="frame" x="0.0" y="0.0" width="1366" height="51.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="TbK-C3-Sb8" id="XPU-8s-Up7"/>
+                                    <outlet property="delegate" destination="TbK-C3-Sb8" id="AWD-kE-Zic"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VEX-D8-ADA" secondAttribute="trailing" id="0DM-iZ-Vdn"/>
+                            <constraint firstItem="VEX-D8-ADA" firstAttribute="top" secondItem="Pd0-vh-jJb" secondAttribute="top" id="90x-nU-gNF"/>
+                            <constraint firstAttribute="bottom" secondItem="VEX-D8-ADA" secondAttribute="bottom" id="Elv-71-YWB"/>
+                            <constraint firstItem="VEX-D8-ADA" firstAttribute="leading" secondItem="Pd0-vh-jJb" secondAttribute="leading" id="qeB-Ea-CN9"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Kce-al-qKv"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Monsters" id="zY6-Ba-1BY"/>
+                    <navigationItem key="navigationItem" title="Monsters" id="wHN-Up-QlM"/>
+                    <connections>
+                        <outlet property="monstersTableView" destination="VEX-D8-ADA" id="czi-Pf-dqN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yVQ-Wl-azb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1023" y="-944"/>
+        </scene>
+        <!--Monster Detail View Controller-->
+        <scene sceneID="dLQ-21-5Cc">
+            <objects>
+                <viewController id="FeM-Bs-u6g" customClass="MonsterDetailViewController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zQw-IE-m3f">
+                        <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="1iz-9b-s89"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="G6p-xv-eDF"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l2b-nG-1dZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1713" y="-945"/>
+        </scene>
+        <!--Compendium Tab Bar Controller-->
+        <scene sceneID="evj-zM-l2k">
+            <objects>
+                <tabBarController id="Q8d-yy-FWK" customClass="CompendiumTabBarController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DLP-W4-bgo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="laY-qs-QTS" kind="relationship" relationship="viewControllers" id="hLk-Kw-fgm"/>
+                        <segue destination="vta-fD-sq6" kind="relationship" relationship="viewControllers" id="Gee-KF-b9I"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uhP-bR-xse" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-411" y="-174"/>
+        </scene>
+    </scenes>
+</document>

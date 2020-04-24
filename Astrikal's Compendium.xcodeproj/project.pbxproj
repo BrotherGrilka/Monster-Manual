@@ -1,0 +1,442 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B4E918252447C9710076DCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918242447C9710076DCE6 /* AppDelegate.swift */; };
+		B4E918272447C9710076DCE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918262447C9710076DCE6 /* SceneDelegate.swift */; };
+		B4E9182C2447C9710076DCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E9182A2447C9710076DCE6 /* Main.storyboard */; };
+		B4E918312447C9720076DCE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B4E918302447C9720076DCE6 /* Assets.xcassets */; };
+		B4E918342447C9720076DCE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E918322447C9720076DCE6 /* LaunchScreen.storyboard */; };
+		B4E9183C2447CDD70076DCE6 /* MonstersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9183B2447CDD70076DCE6 /* MonstersViewController.swift */; };
+		B4E918412447CF220076DCE6 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918402447CF220076DCE6 /* Network.swift */; };
+		B4E918432447CF540076DCE6 /* GetMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918422447CF540076DCE6 /* GetMonsters.swift */; };
+		B4E918462447FACD0076DCE6 /* CompendiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918442447FACD0076DCE6 /* CompendiumCell.swift */; };
+		B4E918472447FACD0076DCE6 /* CompendiumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E918452447FACD0076DCE6 /* CompendiumCell.xib */; };
+		B4E9184B24487CC50076DCE6 /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */; };
+		B4E918532448A44C0076DCE6 /* CompendiumTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */; };
+		B4E918552449249B0076DCE6 /* QUENCRG_.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B4E918542449249B0076DCE6 /* QUENCRG_.TTF */; };
+		B4E91857244957B00076DCE6 /* CompendiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E91856244957B00076DCE6 /* CompendiumViewController.swift */; };
+		B4E9185D2449E14D0076DCE6 /* CoreDataMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */; };
+		B4E9186E244E485F0076DCE6 /* MonsterManual.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		B4E918212447C9710076DCE6 /* Astrikal's Compendium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astrikal's Compendium.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B4E918242447C9710076DCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B4E918262447C9710076DCE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B4E9182B2447C9710076DCE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B4E918302447C9720076DCE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B4E918332447C9720076DCE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B4E918352447C9720076DCE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B4E9183B2447CDD70076DCE6 /* MonstersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstersViewController.swift; sourceTree = "<group>"; };
+		B4E918402447CF220076DCE6 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		B4E918422447CF540076DCE6 /* GetMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMonsters.swift; sourceTree = "<group>"; };
+		B4E918442447FACD0076DCE6 /* CompendiumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumCell.swift; sourceTree = "<group>"; };
+		B4E918452447FACD0076DCE6 /* CompendiumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompendiumCell.xib; sourceTree = "<group>"; };
+		B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
+		B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumTabBarController.swift; sourceTree = "<group>"; };
+		B4E918542449249B0076DCE6 /* QUENCRG_.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = QUENCRG_.TTF; path = ../../../../../Desktop/QUENCRG_.TTF; sourceTree = "<group>"; };
+		B4E91856244957B00076DCE6 /* CompendiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumViewController.swift; sourceTree = "<group>"; };
+		B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMonsters.swift; sourceTree = "<group>"; };
+		B4E9185F244A490C0076DCE6 /* MonsterManual.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterManual.xcdatamodel; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B4E9181E2447C9710076DCE6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B4E918182447C9700076DCE6 = {
+			isa = PBXGroup;
+			children = (
+				B4E918232447C9710076DCE6 /* Astrikal's Compendium */,
+				B4E918222447C9710076DCE6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B4E918222447C9710076DCE6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B4E918212447C9710076DCE6 /* Astrikal's Compendium.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B4E918232447C9710076DCE6 /* Astrikal's Compendium */ = {
+			isa = PBXGroup;
+			children = (
+				B4E9184D2448A3830076DCE6 /* Cells */,
+				B4E9183E2447CF0C0076DCE6 /* Network */,
+				B4E918242447C9710076DCE6 /* AppDelegate.swift */,
+				B4E918262447C9710076DCE6 /* SceneDelegate.swift */,
+				B4E918352447C9720076DCE6 /* Info.plist */,
+				B4E9182A2447C9710076DCE6 /* Main.storyboard */,
+				B4E9184F2448A3C20076DCE6 /* Things */,
+				B4E9184E2448A3A10076DCE6 /* Core Data */,
+				B4E9183D2447CDDE0076DCE6 /* Monsters */,
+				B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */,
+			);
+			path = "Astrikal's Compendium";
+			sourceTree = "<group>";
+		};
+		B4E9183D2447CDDE0076DCE6 /* Monsters */ = {
+			isa = PBXGroup;
+			children = (
+				B4E9183B2447CDD70076DCE6 /* MonstersViewController.swift */,
+				B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */,
+				B4E91856244957B00076DCE6 /* CompendiumViewController.swift */,
+			);
+			path = Monsters;
+			sourceTree = "<group>";
+		};
+		B4E9183E2447CF0C0076DCE6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B4E9183F2447CF150076DCE6 /* Base */,
+				B4E918422447CF540076DCE6 /* GetMonsters.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		B4E9183F2447CF150076DCE6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				B4E918402447CF220076DCE6 /* Network.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B4E9184D2448A3830076DCE6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B4E918442447FACD0076DCE6 /* CompendiumCell.swift */,
+				B4E918452447FACD0076DCE6 /* CompendiumCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		B4E9184E2448A3A10076DCE6 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */,
+				B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		B4E9184F2448A3C20076DCE6 /* Things */ = {
+			isa = PBXGroup;
+			children = (
+				B4E918542449249B0076DCE6 /* QUENCRG_.TTF */,
+				B4E918302447C9720076DCE6 /* Assets.xcassets */,
+				B4E918322447C9720076DCE6 /* LaunchScreen.storyboard */,
+			);
+			path = Things;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B4E918202447C9710076DCE6 /* Astrikal's Compendium */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B4E918382447C9720076DCE6 /* Build configuration list for PBXNativeTarget "Astrikal's Compendium" */;
+			buildPhases = (
+				B4E9181D2447C9710076DCE6 /* Sources */,
+				B4E9181E2447C9710076DCE6 /* Frameworks */,
+				B4E9181F2447C9710076DCE6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Astrikal's Compendium";
+			productName = "Astrikal's Compendium";
+			productReference = B4E918212447C9710076DCE6 /* Astrikal's Compendium.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B4E918192447C9700076DCE6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = Mmyrmidons;
+				TargetAttributes = {
+					B4E918202447C9710076DCE6 = {
+						CreatedOnToolsVersion = 11.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B4E9181C2447C9700076DCE6 /* Build configuration list for PBXProject "Astrikal's Compendium" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B4E918182447C9700076DCE6;
+			productRefGroup = B4E918222447C9710076DCE6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B4E918202447C9710076DCE6 /* Astrikal's Compendium */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B4E9181F2447C9710076DCE6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4E918472447FACD0076DCE6 /* CompendiumCell.xib in Resources */,
+				B4E918342447C9720076DCE6 /* LaunchScreen.storyboard in Resources */,
+				B4E918312447C9720076DCE6 /* Assets.xcassets in Resources */,
+				B4E9182C2447C9710076DCE6 /* Main.storyboard in Resources */,
+				B4E918552449249B0076DCE6 /* QUENCRG_.TTF in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B4E9181D2447C9710076DCE6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B4E9186E244E485F0076DCE6 /* MonsterManual.xcdatamodeld in Sources */,
+				B4E9184B24487CC50076DCE6 /* MonsterDetailViewController.swift in Sources */,
+				B4E918462447FACD0076DCE6 /* CompendiumCell.swift in Sources */,
+				B4E918252447C9710076DCE6 /* AppDelegate.swift in Sources */,
+				B4E918412447CF220076DCE6 /* Network.swift in Sources */,
+				B4E918272447C9710076DCE6 /* SceneDelegate.swift in Sources */,
+				B4E91857244957B00076DCE6 /* CompendiumViewController.swift in Sources */,
+				B4E918532448A44C0076DCE6 /* CompendiumTabBarController.swift in Sources */,
+				B4E9183C2447CDD70076DCE6 /* MonstersViewController.swift in Sources */,
+				B4E918432447CF540076DCE6 /* GetMonsters.swift in Sources */,
+				B4E9185D2449E14D0076DCE6 /* CoreDataMonsters.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		B4E9182A2447C9710076DCE6 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4E9182B2447C9710076DCE6 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B4E918322447C9720076DCE6 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B4E918332447C9720076DCE6 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B4E918362447C9720076DCE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		B4E918372447C9720076DCE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B4E918392447C9720076DCE6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Astrikal's Compendium/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Mmyrmidons.Astrikal-s-Compendium";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B4E9183A2447C9720076DCE6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Astrikal's Compendium/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Mmyrmidons.Astrikal-s-Compendium";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B4E9181C2447C9700076DCE6 /* Build configuration list for PBXProject "Astrikal's Compendium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4E918362447C9720076DCE6 /* Debug */,
+				B4E918372447C9720076DCE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B4E918382447C9720076DCE6 /* Build configuration list for PBXNativeTarget "Astrikal's Compendium" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B4E918392447C9720076DCE6 /* Debug */,
+				B4E9183A2447C9720076DCE6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B4E9185F244A490C0076DCE6 /* MonsterManual.xcdatamodel */,
+			);
+			currentVersion = B4E9185F244A490C0076DCE6 /* MonsterManual.xcdatamodel */;
+			path = MonsterManual.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = B4E918192447C9700076DCE6 /* Project object */;
+}
