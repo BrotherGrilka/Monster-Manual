@@ -11,6 +11,7 @@ import CoreData
 
 typealias VoidCallback = () -> ()
 typealias MonsterCongressCallback = (MonsterCongress) -> ()
+typealias MonsterCallback = (Monster) -> ()
 typealias MonsterEntityCallback = (MonsterEntity) -> ()
 typealias DataCallback = (Data?) -> ()
 typealias ErrorCallback = (Error) -> ()

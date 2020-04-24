@@ -18,14 +18,11 @@ class MonsterDetailViewController: CompendiumViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _ = GetMonsters.forMonsterIndex(monsterIndex: monsterIndex ?? "black-pudding", success: { (monsterEntity) in
+        _ = GetMonsters.forMonsterIndex(monsterIndex: monsterIndex ?? "black-pudding", success: { (monster) in
             DispatchQueue.main.async {
 
-               print(monsterEntity)
+               print(monster)
                 
-                
-                //                self.monsterCongress = monsters
-//                self.monstersTableView.reloadData()
             }
         }, failure: { error in self.errorScribe?.recordInErrorScroll(status: .GetMonsterFailure(error)) })
     }

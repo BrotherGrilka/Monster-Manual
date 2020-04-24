@@ -11,46 +11,6 @@ import CoreData
 
 class FiendFolio {
     let managedContext:NSManagedObjectContext
-//    let monsterManualEntity:NSEntityDescription?
-
-//    init?(monsterIndex: String) {
-//        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-//            return nil
-//        }
-//
-//        var monstaIndex:String?
-//
-//        managedContext = appDelegate.persistentContainer.viewContext
-//
-//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MonsterEntity")
-//
-//        do {
-//            let monsterEntities = try managedContext.fetch(fetchRequest)
-//
-//            if monsterEntities.count > 0 {
-//                let monsterEntity = monsterEntities[0]
-//                monstaIndex = monsterEntity.value(forKey: "monsterIndex") as? String
-//            } else {
-//                if let monsterEntity = NSEntityDescription.entity(forEntityName: "MonsterEntity", in: managedContext) {
-//                    let monster = NSManagedObject(entity: monsterEntity, insertInto: managedContext)
-//
-//                    monster.setValue(monsterIndex, forKeyPath: "monsterIndex")
-//
-////                    monstaIndex = monster.value(forKey: monsterIndex) as? String
-//
-//                    do {
-//                        try managedContext.save()
-//                    } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
-//                }
-//            }
-//            print("Ozzi: \(monsterEntities) :::: \(monstaIndex)")
-//        } catch let error as NSError {
-//            print("Could not fetch. \(error), \(error.userInfo)")
-//        }
-//
-//
-//
-//    }
     
     func create(data: Data) -> MonsterEntity? {
         if let monsterEntityDescription = NSEntityDescription.entity(forEntityName: "MonsterEntity", in: managedContext) {
@@ -74,7 +34,7 @@ class FiendFolio {
                 monsterEntity.setValue(JsonParser.createFieldItem(field: "armor_class", json: json!) as Int, forKeyPath: "armor_class")
 
                 monsterEntity.setValue(JsonParser.createFieldItem(field: "hit_points", json: json!) as Int, forKeyPath: "hit_points")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "hit_dice", json: json!) as Int, forKeyPath: "hit_dice")
+                monsterEntity.setValue(JsonParser.createFieldItem(field: "hit_dice", json: json!) as String, forKeyPath: "hit_dice")
                 monsterEntity.setValue(JsonParser.createFieldItem(field: "strength", json: json!) as Int, forKeyPath: "strength")
                 monsterEntity.setValue(JsonParser.createFieldItem(field: "dexterity", json: json!) as Int, forKeyPath: "dexterity")
                 monsterEntity.setValue(JsonParser.createFieldItem(field: "constitution", json: json!) as Int, forKeyPath: "constitution")
@@ -120,13 +80,5 @@ class FiendFolio {
         }
             
         managedContext = appDelegate.persistentContainer.viewContext
-    }
-
-    class Populator: JsonInitializable {
-        required init(json: [String : Any]) {
-            
-        }
-        
-        
     }
 }
