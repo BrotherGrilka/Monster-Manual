@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B4978433245731A800F21CFE /* MonsterManualNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4978432245731A700F21CFE /* MonsterManualNavigationController.swift */; };
+		B49784352458C32F00F21CFE /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784342458C32E00F21CFE /* PostLocation.swift */; };
+		B49784372459C11800F21CFE /* DeleteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784362459C11800F21CFE /* DeleteLocation.swift */; };
+		B49784392459C15300F21CFE /* PutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784382459C15300F21CFE /* PutLocation.swift */; };
 		B4E918252447C9710076DCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918242447C9710076DCE6 /* AppDelegate.swift */; };
 		B4E918272447C9710076DCE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918262447C9710076DCE6 /* SceneDelegate.swift */; };
 		B4E9182C2447C9710076DCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E9182A2447C9710076DCE6 /* Main.storyboard */; };
@@ -18,14 +22,17 @@
 		B4E918462447FACD0076DCE6 /* CompendiumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918442447FACD0076DCE6 /* CompendiumCell.swift */; };
 		B4E918472447FACD0076DCE6 /* CompendiumCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4E918452447FACD0076DCE6 /* CompendiumCell.xib */; };
 		B4E9184B24487CC50076DCE6 /* MonsterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */; };
-		B4E918532448A44C0076DCE6 /* CompendiumTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */; };
 		B4E918552449249B0076DCE6 /* QUENCRG_.TTF in Resources */ = {isa = PBXBuildFile; fileRef = B4E918542449249B0076DCE6 /* QUENCRG_.TTF */; };
-		B4E91857244957B00076DCE6 /* CompendiumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E91856244957B00076DCE6 /* CompendiumViewController.swift */; };
+		B4E91857244957B00076DCE6 /* MonsterManualViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E91856244957B00076DCE6 /* MonsterManualViewController.swift */; };
 		B4E9185D2449E14D0076DCE6 /* CoreDataMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */; };
 		B4E9186E244E485F0076DCE6 /* MonsterManual.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B4978432245731A700F21CFE /* MonsterManualNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterManualNavigationController.swift; sourceTree = "<group>"; };
+		B49784342458C32E00F21CFE /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
+		B49784362459C11800F21CFE /* DeleteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLocation.swift; sourceTree = "<group>"; };
+		B49784382459C15300F21CFE /* PutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutLocation.swift; sourceTree = "<group>"; };
 		B4E918212447C9710076DCE6 /* Astrikal's Compendium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astrikal's Compendium.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E918242447C9710076DCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4E918262447C9710076DCE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,9 +46,8 @@
 		B4E918442447FACD0076DCE6 /* CompendiumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumCell.swift; sourceTree = "<group>"; };
 		B4E918452447FACD0076DCE6 /* CompendiumCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CompendiumCell.xib; sourceTree = "<group>"; };
 		B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDetailViewController.swift; sourceTree = "<group>"; };
-		B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumTabBarController.swift; sourceTree = "<group>"; };
 		B4E918542449249B0076DCE6 /* QUENCRG_.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = QUENCRG_.TTF; path = ../../../../../Desktop/QUENCRG_.TTF; sourceTree = "<group>"; };
-		B4E91856244957B00076DCE6 /* CompendiumViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompendiumViewController.swift; sourceTree = "<group>"; };
+		B4E91856244957B00076DCE6 /* MonsterManualViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterManualViewController.swift; sourceTree = "<group>"; };
 		B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataMonsters.swift; sourceTree = "<group>"; };
 		B4E9185F244A490C0076DCE6 /* MonsterManual.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MonsterManual.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +63,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B4BFFE1D24539617003C2D0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		B4E918182447C9700076DCE6 = {
 			isa = PBXGroup;
 			children = (
@@ -82,10 +95,10 @@
 				B4E918262447C9710076DCE6 /* SceneDelegate.swift */,
 				B4E918352447C9720076DCE6 /* Info.plist */,
 				B4E9182A2447C9710076DCE6 /* Main.storyboard */,
+				B4978432245731A700F21CFE /* MonsterManualNavigationController.swift */,
 				B4E9184F2448A3C20076DCE6 /* Things */,
 				B4E9184E2448A3A10076DCE6 /* Core Data */,
 				B4E9183D2447CDDE0076DCE6 /* Monsters */,
-				B4E918522448A44C0076DCE6 /* CompendiumTabBarController.swift */,
 			);
 			path = "Astrikal's Compendium";
 			sourceTree = "<group>";
@@ -95,7 +108,7 @@
 			children = (
 				B4E9183B2447CDD70076DCE6 /* MonstersViewController.swift */,
 				B4E9184A24487CC50076DCE6 /* MonsterDetailViewController.swift */,
-				B4E91856244957B00076DCE6 /* CompendiumViewController.swift */,
+				B4E91856244957B00076DCE6 /* MonsterManualViewController.swift */,
 			);
 			path = Monsters;
 			sourceTree = "<group>";
@@ -105,6 +118,9 @@
 			children = (
 				B4E9183F2447CF150076DCE6 /* Base */,
 				B4E918422447CF540076DCE6 /* GetMonsters.swift */,
+				B49784342458C32E00F21CFE /* PostLocation.swift */,
+				B49784362459C11800F21CFE /* DeleteLocation.swift */,
+				B49784382459C15300F21CFE /* PutLocation.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -129,6 +145,7 @@
 		B4E9184E2448A3A10076DCE6 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
+				B4BFFE1D24539617003C2D0C /* Models */,
 				B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */,
 				B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */,
 			);
@@ -222,10 +239,13 @@
 				B4E9184B24487CC50076DCE6 /* MonsterDetailViewController.swift in Sources */,
 				B4E918462447FACD0076DCE6 /* CompendiumCell.swift in Sources */,
 				B4E918252447C9710076DCE6 /* AppDelegate.swift in Sources */,
+				B4978433245731A800F21CFE /* MonsterManualNavigationController.swift in Sources */,
 				B4E918412447CF220076DCE6 /* Network.swift in Sources */,
+				B49784392459C15300F21CFE /* PutLocation.swift in Sources */,
 				B4E918272447C9710076DCE6 /* SceneDelegate.swift in Sources */,
-				B4E91857244957B00076DCE6 /* CompendiumViewController.swift in Sources */,
-				B4E918532448A44C0076DCE6 /* CompendiumTabBarController.swift in Sources */,
+				B49784372459C11800F21CFE /* DeleteLocation.swift in Sources */,
+				B4E91857244957B00076DCE6 /* MonsterManualViewController.swift in Sources */,
+				B49784352458C32F00F21CFE /* PostLocation.swift in Sources */,
 				B4E9183C2447CDD70076DCE6 /* MonstersViewController.swift in Sources */,
 				B4E918432447CF540076DCE6 /* GetMonsters.swift in Sources */,
 				B4E9185D2449E14D0076DCE6 /* CoreDataMonsters.swift in Sources */,

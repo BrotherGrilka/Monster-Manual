@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MonsterDetailViewController: CompendiumViewController {
+class MonsterDetailViewController: MonsterManualViewController {
     var monsterIndex:String?
     
     override func viewDidLoad() {
@@ -18,24 +18,15 @@ class MonsterDetailViewController: CompendiumViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        _ = GetMonsters.forMonsterIndex(monsterIndex: monsterIndex ?? "black-pudding", success: { (monster) in
+        _ = GetMonsters.forMonsterIndex(monsterIndex: monsterIndex ?? "black-pudding", success: { (monstaEntity) in
             DispatchQueue.main.async {
 
-               print(monster)
+//               print("Manners: \(monstaEntity)")
                 
+                
+                //                self.monsterCongress = monsters
+//                self.monstersTableView.reloadData()
             }
         }, failure: { error in self.errorScribe?.recordInErrorScroll(status: .GetMonsterFailure(error)) })
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

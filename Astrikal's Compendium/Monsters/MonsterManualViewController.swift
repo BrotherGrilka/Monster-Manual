@@ -1,5 +1,5 @@
 //
-//  CompendiumViewController.swift
+//  MonsterManualViewController.swift
 //  Astrikal's Compendium
 //
 //  Created by Dunc on 4/16/20.
@@ -8,12 +8,12 @@
 
 import UIKit
 
-class CompendiumViewController: UIViewController {
+class MonsterManualViewController: UIViewController {
     var errorScribe:ErrorScribe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        errorScribe = tabBarController as? ErrorScribe
+        errorScribe = navigationController as? ErrorScribe
     }
 }

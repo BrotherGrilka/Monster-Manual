@@ -9,70 +9,65 @@
 import UIKit
 import CoreData
 
-class FiendFolio {
+class Immortality {
     let managedContext:NSManagedObjectContext
     
-    func create(data: Data) -> MonsterEntity? {
-        if let monsterEntityDescription = NSEntityDescription.entity(forEntityName: "MonsterEntity", in: managedContext) {
-            let monsterEntity = NSManagedObject(entity: monsterEntityDescription, insertInto: managedContext) as! MonsterEntity
+    func create(data: Data) -> Monsta? {
+        if let monstaEntityDescription = NSEntityDescription.entity(forEntityName: "Monsta", in: managedContext) {
+            let monstaEntity = NSManagedObject(entity: monstaEntityDescription, insertInto: managedContext) as! Monsta
 
             do {
                 let json = try JSONSerialization.jsonObject(with: data) as? [String:Any]
-                
-                
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "_id", json: json!) as String, forKeyPath: "id")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "index", json: json!) as String, forKeyPath: "index")
-
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "name", json: json!) as String, forKeyPath: "name")
-
-
-
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "size", json: json!) as String, forKeyPath: "size")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "type", json: json!) as String, forKeyPath: "type")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "subtype", json: json!) as String, forKeyPath: "subtype")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "alignment", json: json!) as String, forKeyPath: "alignment")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "armor_class", json: json!) as Int, forKeyPath: "armor_class")
-
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "hit_points", json: json!) as Int, forKeyPath: "hit_points")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "hit_dice", json: json!) as String, forKeyPath: "hit_dice")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "strength", json: json!) as Int, forKeyPath: "strength")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "dexterity", json: json!) as Int, forKeyPath: "dexterity")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "constitution", json: json!) as Int, forKeyPath: "constitution")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "intelligence", json: json!) as Int, forKeyPath: "intelligence")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "wisdom", json: json!) as Int, forKeyPath: "wisdom")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "charisma", json: json!) as Int, forKeyPath: "charisma")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "challenge_rating", json: json!) as Int, forKeyPath: "challenge_rating")
-                monsterEntity.setValue(JsonParser.createFieldItem(field: "url", json: json!) as String, forKeyPath: "url")
-
+                monstaEntity.parse(json: json!)
             } catch {  }
 
+            do { try managedContext.save() }
+            catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
 
-            do {
-                try managedContext.save()
-            } catch let error as NSError { print("Could not save. \(error), \(error.userInfo)") }
-
-            return monsterEntity
+            return monstaEntity
         }
         
         return nil
     }
     
-    func fetch(monsterIndex: String) -> MonsterEntity? {
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MonsterEntity")
-        var monsterEntities:[MonsterEntity]?
+    func fetch(monsterIndex: String) -> Monsta? {
+        let fetch = NSFetchRequest<NSManagedObject>(entityName: "Monsta")
+        var monstaEntities:[Monsta]?
         
-        fetchRequest.predicate = NSPredicate(format: "index = %@", monsterIndex)
-
+        fetch.predicate = NSPredicate(format: "index = %@", monsterIndex)
+        
         do {
-            monsterEntities = try managedContext.fetch(fetchRequest) as? [MonsterEntity]
+            monstaEntities = try managedContext.fetch(fetch) as? [Monsta]
         } catch let error as NSError {
             print("Fiend Folio fetch failure =  \(error) :: \(error.userInfo)")
         }
-        
-        return monsterEntities?.first
+
+        if let lastEncounter = monstaEntities?.first?.last_encounter {
+            let theBeforeTime = Date().addingTimeInterval(-2999998)
+            
+            if theBeforeTime.compare(lastEncounter) == .orderedDescending {
+                self.slaughterMonsters()
+            }
+
+            return nil
+        }
+
+        return monstaEntities?.first
+    }
+    
+    func slaughterMonsters() {
+        let fetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Monsta")
+        let batchDelete = NSBatchDeleteRequest(fetchRequest: fetch)
+
+        do {
+            try managedContext.execute(batchDelete)
+            try managedContext.save()
+        } catch let error as NSError {
+            print("Fiend Folio fetch failure =  \(error) :: \(error.userInfo)")
+        }
     }
 
-    static let caveDwelling = FiendFolio()
+    static let chamber = Immortality()
 
     private init?() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
@@ -82,3 +77,96 @@ class FiendFolio {
         managedContext = appDelegate.persistentContainer.viewContext
     }
 }
+
+extension NSManagedObject: JsonParsable {
+    func parse(json: [String : Any]) {
+        for (attributeName, _) in self.entity.attributesByName {
+            guard let attributeJson = json[attributeName], !(attributeJson is NSNull) else {
+                continue
+            }
+
+            self.setValue(attributeJson, forKeyPath: attributeName)
+        }
+
+        for (relationshipName, relationshipDescription) in self.entity.relationshipsByName {
+            guard let relationshipJson = json[relationshipName], !(relationshipJson is NSNull) else {
+                if relationshipName.starts(with: "damage") {
+                    self.absorbDamage(json: json)
+                }
+
+                continue
+            }
+
+            let entityName = relationshipName.capitalized.replacingOccurrences(of: #"s$"#, with: #""#, options: .regularExpression).replacingOccurrences(of: #"ie$"#, with: #"y"#, options: .regularExpression)
+
+            if relationshipDescription.isToMany {
+                var toManySet:Set = Set<NSManagedObject>()
+                
+                if let relationshipMembersArray = relationshipJson as? Array<Any> {
+                    for relationshipMember in relationshipMembersArray {
+                        let relationshipEntity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: Immortality.chamber!.managedContext)
+
+                        relationshipEntity.parse(json: relationshipMember as! [String : Any])
+
+                        if let inverseName = relationshipDescription.inverseRelationship?.name {
+                            relationshipEntity.setValue(self, forKey: inverseName)
+                        }
+
+                        toManySet.insert(relationshipEntity)
+                    }
+                }
+
+                self.setValue(toManySet, forKeyPath: relationshipName)
+            } else {
+                let relationshipEntity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: Immortality.chamber!.managedContext)
+
+                relationshipEntity.parse(json: relationshipJson as! [String : Any])                
+
+                if let inverseName = relationshipDescription.inverseRelationship?.name {
+                    relationshipEntity.setValue(self, forKey: inverseName)
+                }
+
+                self.setValue(relationshipEntity, forKeyPath: relationshipName)
+            }
+        }
+        
+        if let monsta = self as? Monsta {
+            monsta.last_encounter = Date()
+        }
+
+//        DispatchQueue(label: "Search for Traps", qos: .background).async {
+//            print("Ozzi searches for traps")
+//        }
+    }
+
+    func absorbDamage(json: [String : Any]) {
+        let damageEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage", into: Immortality.chamber!.managedContext) as! Damage
+
+        if let damageImmunities = json["damage_immunities"] as? [String] {
+            let damageImmunityEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Immunity", into: Immortality.chamber!.managedContext) as! Damage_Immunity
+
+            damageImmunityEntity.immunities = damageImmunities.joined(separator: ", ")
+            damageEntity.damage_immunities = damageImmunityEntity
+        }
+
+        if let damageResistances = json["damage_resistances"] as? [String] {
+            let damageResistanceEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Resistance", into: Immortality.chamber!.managedContext) as! Damage_Resistance
+            
+            damageResistanceEntity.resistances = damageResistances.joined(separator: ", ")
+            damageEntity.damage_resistances = damageResistanceEntity
+        }
+
+        if let damageVulnerabilities = json["damage_vulnerabilities"] as? [String] {
+            let damageVulnerabilityEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Vulnerability", into: Immortality.chamber!.managedContext) as! Damage_Vulnerability
+            
+            damageVulnerabilityEntity.vulnerabilities = damageVulnerabilities.joined(separator: ", ")
+            damageEntity.damage_vulnerabilities = damageVulnerabilityEntity
+        }
+        
+        self.setValue(damageEntity, forKeyPath: "Damage")
+    }
+}
+
+
+
+

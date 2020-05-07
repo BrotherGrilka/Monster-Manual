@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MonstersViewController: CompendiumViewController, UITableViewDataSource, UITableViewDelegate {
+class MonstersViewController: MonsterManualViewController, UITableViewDataSource, UITableViewDelegate {
     @IBOutlet weak var monstersTableView: UITableView!
     var monsterCongress:MonsterCongress?
     
@@ -52,7 +52,7 @@ class MonstersViewController: CompendiumViewController, UITableViewDataSource, U
     
     // MARK: - Table view delegate
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 40
     }
 

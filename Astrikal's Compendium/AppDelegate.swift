@@ -8,11 +8,12 @@
 
 import UIKit
 import CoreData
+import BackgroundTasks
 
 typealias VoidCallback = () -> ()
 typealias MonsterCongressCallback = (MonsterCongress) -> ()
 typealias MonsterCallback = (Monster) -> ()
-typealias MonsterEntityCallback = (MonsterEntity) -> ()
+typealias MonsterEntityCallback = (Monsta) -> ()
 typealias DataCallback = (Data?) -> ()
 typealias ErrorCallback = (Error) -> ()
 
@@ -22,8 +23,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        BGTaskScheduler.shared.register(
+                   forTaskWithIdentifier: "com.urtheaters",
+                   using: DispatchQueue.global()
+               ) { task in
+                   self.postLocation(task)
+               }
+
         return true
+    }
+    
+    private func postLocation(_ task: BGTask) {
+        print("Come out Ozz-man")
+        
+                do {
+            let request = BGProcessingTaskRequest(identifier: "com.urtheaters")
+            request.requiresExternalPower = true
+            request.requiresNetworkConnectivity = true
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print(error)
+        }
     }
 
     // MARK: UISceneSession Lifecycle

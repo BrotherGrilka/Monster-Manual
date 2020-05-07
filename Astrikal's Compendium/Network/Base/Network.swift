@@ -20,9 +20,12 @@ enum NetworkError:Error {
 }
 
 enum Endpoint {
+    static let Urtheaters = "http://urtheaters.com:3099"
     static let Domain = "http://www.dnd5eapi.co"
     private static let DnDApi = Endpoint.Domain + "/api"
     static let Monsters = Endpoint.DnDApi + "/monsters"
+    private static let CatsApi = Endpoint.Urtheaters + "/api"
+    static let Cats = Endpoint.CatsApi + "/cats"
 }
 
 enum HTTPMethod {
@@ -60,7 +63,7 @@ class Network {
         
         let urlSession = URLSession(configuration: config)
 
-//        print("Birdi Jr's Endpoint = \(String(describing: request.url?.absoluteString))")
+        print("Birdi Jr's Endpoint = \(String(describing: request.url?.absoluteString))")
         
         let task = urlSession.dataTask(with: request, completionHandler: { (data, response, error) in
             if let statusCode = (response as? HTTPURLResponse)?.statusCode {
@@ -80,6 +83,10 @@ class Network {
 
 protocol JsonInitializable {
     init(json: [String:Any])
+}
+
+protocol JsonParsable {
+    func parse(json: [String:Any])
 }
 
 protocol VoidInitializable {
