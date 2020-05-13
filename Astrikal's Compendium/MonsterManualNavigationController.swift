@@ -8,15 +8,25 @@
 
 import UIKit
 
+enum Encounter {
+    case CoreDataError(CoreDataError)
+    case HiManny
+    
+    func recordEncounter() {
+        print(self)
+    }
+}
+
 enum CompendiumError:Error {
+    case AnniError
 //    var Network = NetworkError(networkError: NetworkError)
 }
 
-protocol ErrorScribe {
-    func recordInErrorScroll(status: NetworkError)
+protocol Scribe {
+    func recordInScroll(encounter: Encounter)
 }
 
-class MonsterManualNavigationController: UINavigationController, ErrorScribe {
+class MonsterManualNavigationController: UINavigationController, Scribe {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,14 +73,28 @@ class MonsterManualNavigationController: UINavigationController, ErrorScribe {
         }
     }
 
-    /* ++ ErrorScribe Protocol ++ */
+    /* ++ Librarian Protocol ++ */
     
-    func recordInErrorScroll(status: NetworkError) {
-        print("||+++++++++++++++++++++++++++++++++++++++++++||\n\n")
+    func recordInScroll(encounter: Encounter) {
+        print("\n\n||+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++||\n")
+        print("            _")
+        print("     ___   / |")
+        print("   _/___\\_ |||")
+        print("  _\\\\___//_|||")
+        print(" /. \\/_\\/ .|||")
+        print(" \\__\\__ . [___]")
+        print(" |-   -|. [_ -\\")
+        print(" \\ {/} /_/ \\__/")
+        print("  \\___/=]|]")
+        print("  ||  /\\  ||")
+        print("  ([]|  |[])")
+        print("  |_ |  | _|")
+        print(" [___|  |___]")
         
-        print("Monster Manual Error :: ", status)
-        
-        print("\n\n||+++++++++++++++++++++++++++++++++++++++++++||")
+        print("\n\n    Monster Manual Encounter\n")
+        encounter.recordEncounter()
+                
+        print("\n\n||+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++||\n\n")
 
     }
 

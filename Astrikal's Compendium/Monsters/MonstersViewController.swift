@@ -15,7 +15,7 @@ class MonstersViewController: MonsterManualViewController, UITableViewDataSource
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        errorScribe = tabBarController as? ErrorScribe
+        scribe = tabBarController as? Scribe
         monstersTableView.register(UINib(nibName: CompendiumCell.moniker, bundle: nil), forCellReuseIdentifier: CompendiumCell.moniker)
     }
     
@@ -27,12 +27,15 @@ class MonstersViewController: MonsterManualViewController, UITableViewDataSource
                 self.monsterCongress = monsters
                 self.monstersTableView.reloadData()
             }
-        }, failure: { error in self.errorScribe?.recordInErrorScroll(status: .GetMonsterFailure(error)) })
+        }, failure: { error in
+//            self.scribe?.recordInScroll(status: .GetMonsterFailure(error))
+            
+        })
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let monsterDetailViewController = segue.destination as? MonsterDetailViewController, let indexPath = sender as? IndexPath {
-            monsterDetailViewController.monsterIndex = monsterCongress?.monsters[indexPath.row].index
+            monsterDetailViewController.monstaIndex = monsterCongress?.monsters[indexPath.row].index
         }
     }
 

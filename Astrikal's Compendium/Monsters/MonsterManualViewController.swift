@@ -9,11 +9,11 @@
 import UIKit
 
 class MonsterManualViewController: UIViewController {
-    var errorScribe:ErrorScribe?
+    var scribe:Scribe?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        errorScribe = navigationController as? ErrorScribe
+        scribe = navigationController as? Scribe
     }
 }

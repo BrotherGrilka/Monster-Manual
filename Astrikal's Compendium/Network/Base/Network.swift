@@ -26,6 +26,7 @@ enum Endpoint {
     static let Monsters = Endpoint.DnDApi + "/monsters"
     private static let CatsApi = Endpoint.Urtheaters + "/api"
     static let Cats = Endpoint.CatsApi + "/cats"
+    static let GoogleApiKey = "AIzaSyA4NT_swnI5_4caRmu4bYZ93tLjBbqHAv8"
 }
 
 enum HTTPMethod {

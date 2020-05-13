@@ -11,6 +11,10 @@
 		B49784352458C32F00F21CFE /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784342458C32E00F21CFE /* PostLocation.swift */; };
 		B49784372459C11800F21CFE /* DeleteLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784362459C11800F21CFE /* DeleteLocation.swift */; };
 		B49784392459C15300F21CFE /* PutLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = B49784382459C15300F21CFE /* PutLocation.swift */; };
+		B4C17EE52464996600C34537 /* MonstaCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C17EE32464996600C34537 /* MonstaCell.swift */; };
+		B4C17EE62464996600C34537 /* MonstaCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4C17EE42464996600C34537 /* MonstaCell.xib */; };
+		B4C17EE82464A55200C34537 /* GetMonsterImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C17EE72464A55200C34537 /* GetMonsterImages.swift */; };
+		B4C17EEC246B639A00C34537 /* Unicorn.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C17EEB246B639A00C34537 /* Unicorn.swift */; };
 		B4E918252447C9710076DCE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918242447C9710076DCE6 /* AppDelegate.swift */; };
 		B4E918272447C9710076DCE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4E918262447C9710076DCE6 /* SceneDelegate.swift */; };
 		B4E9182C2447C9710076DCE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B4E9182A2447C9710076DCE6 /* Main.storyboard */; };
@@ -33,6 +37,10 @@
 		B49784342458C32E00F21CFE /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
 		B49784362459C11800F21CFE /* DeleteLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteLocation.swift; sourceTree = "<group>"; };
 		B49784382459C15300F21CFE /* PutLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutLocation.swift; sourceTree = "<group>"; };
+		B4C17EE32464996600C34537 /* MonstaCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonstaCell.swift; sourceTree = "<group>"; };
+		B4C17EE42464996600C34537 /* MonstaCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MonstaCell.xib; sourceTree = "<group>"; };
+		B4C17EE72464A55200C34537 /* GetMonsterImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMonsterImages.swift; sourceTree = "<group>"; };
+		B4C17EEB246B639A00C34537 /* Unicorn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unicorn.swift; sourceTree = "<group>"; };
 		B4E918212447C9710076DCE6 /* Astrikal's Compendium.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Astrikal's Compendium.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4E918242447C9710076DCE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B4E918262447C9710076DCE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,11 +71,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B4BFFE1D24539617003C2D0C /* Models */ = {
+		B4C17EED246B639F00C34537 /* Color */ = {
 			isa = PBXGroup;
 			children = (
+				B4C17EEB246B639A00C34537 /* Unicorn.swift */,
 			);
-			path = Models;
+			path = Color;
 			sourceTree = "<group>";
 		};
 		B4E918182447C9700076DCE6 = {
@@ -99,6 +108,7 @@
 				B4E9184F2448A3C20076DCE6 /* Things */,
 				B4E9184E2448A3A10076DCE6 /* Core Data */,
 				B4E9183D2447CDDE0076DCE6 /* Monsters */,
+				B4C17EED246B639F00C34537 /* Color */,
 			);
 			path = "Astrikal's Compendium";
 			sourceTree = "<group>";
@@ -118,6 +128,7 @@
 			children = (
 				B4E9183F2447CF150076DCE6 /* Base */,
 				B4E918422447CF540076DCE6 /* GetMonsters.swift */,
+				B4C17EE72464A55200C34537 /* GetMonsterImages.swift */,
 				B49784342458C32E00F21CFE /* PostLocation.swift */,
 				B49784362459C11800F21CFE /* DeleteLocation.swift */,
 				B49784382459C15300F21CFE /* PutLocation.swift */,
@@ -138,6 +149,8 @@
 			children = (
 				B4E918442447FACD0076DCE6 /* CompendiumCell.swift */,
 				B4E918452447FACD0076DCE6 /* CompendiumCell.xib */,
+				B4C17EE32464996600C34537 /* MonstaCell.swift */,
+				B4C17EE42464996600C34537 /* MonstaCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -145,7 +158,6 @@
 		B4E9184E2448A3A10076DCE6 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				B4BFFE1D24539617003C2D0C /* Models */,
 				B4E9185C2449E14D0076DCE6 /* CoreDataMonsters.swift */,
 				B4E9185E244A490C0076DCE6 /* MonsterManual.xcdatamodeld */,
 			);
@@ -223,6 +235,7 @@
 				B4E918472447FACD0076DCE6 /* CompendiumCell.xib in Resources */,
 				B4E918342447C9720076DCE6 /* LaunchScreen.storyboard in Resources */,
 				B4E918312447C9720076DCE6 /* Assets.xcassets in Resources */,
+				B4C17EE62464996600C34537 /* MonstaCell.xib in Resources */,
 				B4E9182C2447C9710076DCE6 /* Main.storyboard in Resources */,
 				B4E918552449249B0076DCE6 /* QUENCRG_.TTF in Resources */,
 			);
@@ -248,7 +261,10 @@
 				B49784352458C32F00F21CFE /* PostLocation.swift in Sources */,
 				B4E9183C2447CDD70076DCE6 /* MonstersViewController.swift in Sources */,
 				B4E918432447CF540076DCE6 /* GetMonsters.swift in Sources */,
+				B4C17EE52464996600C34537 /* MonstaCell.swift in Sources */,
 				B4E9185D2449E14D0076DCE6 /* CoreDataMonsters.swift in Sources */,
+				B4C17EEC246B639A00C34537 /* Unicorn.swift in Sources */,
+				B4C17EE82464A55200C34537 /* GetMonsterImages.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
