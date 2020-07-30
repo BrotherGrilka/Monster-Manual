@@ -9,6 +9,9 @@
 import UIKit
 import CoreData
 
+protocol CellParsable {
+}
+
 enum CoreDataError:Error {
     case SingletonFailure
     case FetchError(Error)
@@ -26,6 +29,9 @@ class Immortality {
     let scribe:Scribe?
     
     func create(data: Data) -> Monsta? {
+        
+        print("Ozzi create: ", data)
+
         if let monstaEntityDescription = NSEntityDescription.entity(forEntityName: "Monsta", in: managedContext) {
             let monstaEntity = NSManagedObject(entity: monstaEntityDescription, insertInto: managedContext) as! Monsta
 
@@ -57,9 +63,8 @@ class Immortality {
             
             if theBeforeTime.compare(lastEncounter) == .orderedDescending {
                 self.slaughterMonsters()
+                return nil
             }
-
-            return nil
         }
 
         return monstaEntities?.first
@@ -93,29 +98,57 @@ extension NSManagedObject: JsonParsable {
             Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.ManagedContextInaccesible))
             return
         }
-        
+
         for (attributeName, _) in self.entity.attributesByName {
             guard let attributeJson = json[attributeName], !(attributeJson is NSNull) else {
                 continue
             }
-
+            
+            if let attributeArray = attributeJson as? [String] {
+                self.setValue(attributeArray.joined(separator: ", "), forKeyPath: attributeName)
+                continue
+            }
+            
             self.setValue(attributeJson, forKeyPath: attributeName)
         }
 
-        let childRelationships = self.entity.relationshipsByName.filter({
+        let childRelationships = self.entity.relationshipsByName.filter {
             $0.value.userInfo?["isParent"] == nil
-        }).map { $0 }
+        }.map { $0 }
 
         for (relationshipName, relationshipDescription) in childRelationships {
+            if self is Option {
+                if let multiattacks = json["from"] as? [[Any]] {
+//                    var toManySet:Set = Set<NSManagedObject>()
+                    for froms in multiattacks {
+                        let multiattackEntity = NSEntityDescription.insertNewObject(forEntityName: "Multiattack", into: managedContext)
+
+                        if let inverseName = relationshipDescription.inverseRelationship?.name {
+                            multiattackEntity.setValue(self, forKey: inverseName)
+                        }
+
+                        for from in froms {
+                            let fromEntity = NSEntityDescription.insertNewObject(forEntityName: "From", into: managedContext)
+                            let fromRelationshipDescription = multiattackEntity.entity.relationships(forDestination: fromEntity.entity)
+
+                            if let fromJson = from as? [String : Any] {
+                                fromEntity.parse(json: fromJson)
+
+                                if let inverseName = fromRelationshipDescription.first?.inverseRelationship?.name {
+                                    fromEntity.setValue(multiattackEntity, forKey: inverseName)
+                                }
+
+                                
+//                                toManySet.insert(fromEntity)
+                            }
+                        }
+                    }
+                }
+            }
+                                
             guard let relationshipJson = json[relationshipName], !(relationshipJson is NSNull) else {
                 continue
             }
-
-
-//            if relationshipName.starts(with: "damage") {
-//                self.absorbDamage(json: relationshipJson)
-//                continue
-//            }
 
             let entityName = relationshipName.capitalized.replacingOccurrences(of: #"s$"#, with: #""#, options: .regularExpression).replacingOccurrences(of: #"ie$"#, with: #"y"#, options: .regularExpression)
 
@@ -135,7 +168,7 @@ extension NSManagedObject: JsonParsable {
 
                             toManySet.insert(relationshipEntity)
                         } else {
-                            Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.JSONSerializationFailure("Failed to parse Json for \(relationshipName)")))
+                            Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.JSONSerializationFailure("Failed to parse Json for to-many relationship = \(relationshipName)")))
                             continue
                         }
                     }
@@ -144,6 +177,11 @@ extension NSManagedObject: JsonParsable {
                 self.setValue(toManySet, forKeyPath: relationshipName)
             } else {
                 let relationshipEntity = NSEntityDescription.insertNewObject(forEntityName: entityName, into: managedContext)
+
+                if let memberJson = relationshipJson as? [Any] {
+                    relationshipEntity.parse(json: [relationshipName: memberJson])
+                    continue
+                }
 
                 if let mindFlayerJson = relationshipJson as? [String: Any] {
                     relationshipEntity.parse(json: mindFlayerJson)
@@ -154,7 +192,7 @@ extension NSManagedObject: JsonParsable {
 
                     self.setValue(relationshipEntity, forKeyPath: relationshipName)
                 } else {
-                    Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.JSONSerializationFailure("Failed to parse Json for \(relationshipName)")))
+                    Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.JSONSerializationFailure("Failed to parse Json for to-one relationship = \(relationshipName)")))
                     continue
                 }
             }
@@ -165,48 +203,14 @@ extension NSManagedObject: JsonParsable {
         }
 
         DispatchQueue(label: "Search for Traps", qos: .background).async {
-            let childProperties = self.entity.propertiesByName.filter({
+            let childProperties = self.entity.propertiesByName.filter {
                 $0.value.userInfo?["isParent"] == nil
-            }).map { $0.key }
+            }.map { $0.key }
             let missingFields = Set(json.keys).subtracting(Set(childProperties))
             
             if missingFields.count > 0 {
                 Immortality.chamber?.scribe?.recordInScroll(encounter: .CoreDataError(.MissingField(self.entity.name ?? "Mind Flayer", missingFields.joined(separator: ", "))))
             }
         }
-
-        func spawn(json: [String : Any]) {
-        }
-    }
-
-    func absorbDamage(json: [String : Any]) {
-//        if let damageEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage", into: managedContext) as? Damage {
-//            if let damageImmunities = json["damage_immunities"] as? [String] {
-//                let damageImmunityEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Immunity", into: managedContext) as! Damage_Immunity
-//
-//                damageImmunityEntity.immunities = damageImmunities.joined(separator: ", ")
-//                damageEntity.damage_immunities = damageImmunityEntity
-//            }
-//
-//            if let damageResistances = json["damage_resistances"] as? [String] {
-//                let damageResistanceEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Resistance", into: managedContext) as! Damage_Resistance
-//
-//                damageResistanceEntity.resistances = damageResistances.joined(separator: ", ")
-//                damageEntity.damage_resistances = damageResistanceEntity
-//            }
-//
-//            if let damageVulnerabilities = json["damage_vulnerabilities"] as? [String] {
-//                let damageVulnerabilityEntity = NSEntityDescription.insertNewObject(forEntityName: "Damage_Vulnerability", into: managedContext) as! Damage_Vulnerability
-//
-//                damageVulnerabilityEntity.vulnerabilities = damageVulnerabilities.joined(separator: ", ")
-//                damageEntity.damage_vulnerabilities = damageVulnerabilityEntity
-//            }
-//
-//            self.setValue(damageEntity, forKeyPath: "Damage")
-//        }
     }
 }
-
-
-
-

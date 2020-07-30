@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Vecna-oppx.ttf">
+            <string>Vecna</string>
+        </array>
+        <array key="VecnaBold-4YY4.ttf">
+            <string>Vecna-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MonstaTraitView" customModule="Astrikal_s_Compendium" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trait:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1nF-6o-qCm">
+                    <rect key="frame" x="0.0" y="6" width="414" height="39.666666666666664"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" name="Vecna-Bold" family="Vecna" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" verticalHuggingPriority="251" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EU4-DR-QCN">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <fontDescription key="fontDescription" name="Vecna" family="Vecna" pointSize="24"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iaq-0A-DdE">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <string key="text">Soil, temperature, and surrounding plants affect how much water a rose needs. In temperate climates, weekly watering is usually enough. Two inches of water a week (4 to 5 gallons) may be all that is needed. If the soil is sandy or the garden is hot, dry, or windy, more frequent watering may be necessary. Care needs to be taken in areas where the soil holds a lot of moisture, as too much water can promote root rot</string>
+                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <fontDescription key="fontDescription" name="Vecna" family="Vecna" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Iaq-0A-DdE" secondAttribute="bottom" id="3df-yS-8w8"/>
+                <constraint firstItem="Iaq-0A-DdE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Lz-Ed-eU3"/>
+                <constraint firstAttribute="bottom" secondItem="EU4-DR-QCN" secondAttribute="bottom" id="9MO-XC-sOc"/>
+                <constraint firstAttribute="trailing" secondItem="Iaq-0A-DdE" secondAttribute="trailing" id="DkR-vF-CHd"/>
+                <constraint firstItem="1nF-6o-qCm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="KM5-Uf-cfl"/>
+                <constraint firstItem="1nF-6o-qCm" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Mzo-W1-XCz"/>
+                <constraint firstItem="Iaq-0A-DdE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="WGe-j0-IeW"/>
+                <constraint firstAttribute="trailing" secondItem="1nF-6o-qCm" secondAttribute="trailing" id="eu8-jx-OLk"/>
+                <constraint firstItem="EU4-DR-QCN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="jdT-Z2-19V"/>
+                <constraint firstItem="EU4-DR-QCN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nrR-tx-gJj"/>
+                <constraint firstAttribute="trailing" secondItem="EU4-DR-QCN" secondAttribute="trailing" id="pj6-rO-qcP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="descriptionIndentation" destination="WGe-j0-IeW" id="WZL-PL-TsL"/>
+                <outlet property="descriptionLabel" destination="EU4-DR-QCN" id="x3I-YN-RyA"/>
+                <outlet property="descriptionTextView" destination="Iaq-0A-DdE" id="1La-qj-c2l"/>
+                <outlet property="traitIndentation" destination="Mzo-W1-XCz" id="XMn-fa-DZA"/>
+                <outlet property="traitLabel" destination="1nF-6o-qCm" id="V9Q-zb-Ep1"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="109.82142857142857"/>
+        </view>
+    </objects>
+</document>

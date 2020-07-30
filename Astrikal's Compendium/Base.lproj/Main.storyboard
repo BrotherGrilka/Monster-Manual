@@ -6,12 +6,33 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="VecnaItalic-e44p.ttf">
+            <string>Vecna-Italic</string>
+        </array>
+    </customFonts>
     <scenes>
-        <!--Monsters-->
+        <!--Contact Tracer-->
+        <scene sceneID="NDf-nc-bKb">
+            <objects>
+                <viewController title="Contact Tracer" id="1aM-eO-JMv" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yRv-Uk-Xxe">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.83216959239999999" green="0.98548370600000001" blue="0.47333085539999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ScO-mD-NkY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Contact Tracer" id="e3N-iW-Btq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V3m-3g-7At" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-497" y="-1030"/>
+        </scene>
+        <!--Monster Manual-->
         <scene sceneID="DIm-w4-fRO">
             <objects>
-                <navigationController id="laY-qs-QTS" customClass="MonsterManualNavigationController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Monsters" id="uaE-rK-LRd"/>
+                <navigationController title="Monster Manual" id="laY-qs-QTS" customClass="MonsterManualNavigationController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Monster Manual" id="uaE-rK-LRd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Xkm-4W-5wu">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -22,46 +43,33 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3so-Pl-wvl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="326" y="-945"/>
+            <point key="canvasLocation" x="-497" y="-1720"/>
         </scene>
-        <!--Monsters-->
+        <!--Monster Manual-->
         <scene sceneID="u3U-24-fdW">
             <objects>
-                <viewController id="TbK-C3-Sb8" customClass="MonstersViewController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TbK-C3-Sb8" customClass="MonsterCongressViewController" customModule="Astrikal_s_Compendium" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pd0-vh-jJb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-D8-ADA">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pIn-Ra-xfO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-D8-ADA">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RAA-f0-v6B">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="RAA-f0-v6B" id="cyd-3K-dud">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <segue destination="FeM-Bs-u6g" kind="show" identifier="MonsterDetail" id="qav-C4-m63"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="rtv-2v-I0l">
-                                        <rect key="frame" x="0.0" y="71.5" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rtv-2v-I0l" id="4DY-TJ-Cjk">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="sCc-xD-YIF">
-                                        <rect key="frame" x="0.0" y="115" width="414" height="43.5"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="sCc-xD-YIF" id="aoL-Ur-4Sf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                                 <sections/>
@@ -71,24 +79,29 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.1857388616" blue="0.57339501380000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="VEX-D8-ADA" secondAttribute="trailing" id="0DM-iZ-Vdn"/>
+                            <constraint firstItem="pIn-Ra-xfO" firstAttribute="leading" secondItem="VEX-D8-ADA" secondAttribute="leading" id="1UY-No-Foi"/>
                             <constraint firstItem="VEX-D8-ADA" firstAttribute="top" secondItem="Pd0-vh-jJb" secondAttribute="top" id="90x-nU-gNF"/>
                             <constraint firstAttribute="bottom" secondItem="VEX-D8-ADA" secondAttribute="bottom" id="Elv-71-YWB"/>
+                            <constraint firstItem="pIn-Ra-xfO" firstAttribute="trailing" secondItem="VEX-D8-ADA" secondAttribute="trailing" id="LQv-DI-Oej"/>
+                            <constraint firstItem="pIn-Ra-xfO" firstAttribute="top" secondItem="VEX-D8-ADA" secondAttribute="top" id="TQS-HL-d5q"/>
                             <constraint firstItem="VEX-D8-ADA" firstAttribute="leading" secondItem="Pd0-vh-jJb" secondAttribute="leading" id="qeB-Ea-CN9"/>
+                            <constraint firstItem="pIn-Ra-xfO" firstAttribute="bottom" secondItem="VEX-D8-ADA" secondAttribute="bottom" id="rqd-cO-Ro7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Kce-al-qKv"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Monsters" id="zY6-Ba-1BY"/>
-                    <navigationItem key="navigationItem" title="Monsters" id="wHN-Up-QlM"/>
+                    <navigationItem key="navigationItem" title="Monster Manual" id="wHN-Up-QlM"/>
                     <connections>
+                        <outlet property="monstaBackgroundImageView" destination="pIn-Ra-xfO" id="rLR-ig-eLF"/>
                         <outlet property="monstersTableView" destination="VEX-D8-ADA" id="czi-Pf-dqN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yVQ-Wl-azb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023" y="-944"/>
+            <point key="canvasLocation" x="200" y="-1719"/>
         </scene>
         <!--Monster Detail View Controller-->
         <scene sceneID="dLQ-21-5Cc">
@@ -98,43 +111,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nyp-WG-QIB">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8FU-zk-fqC">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nyp-WG-QIB">
+                                <rect key="frame" x="0.0" y="152" width="414" height="744"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="FeM-Bs-u6g" id="Ab9-qb-Wr3"/>
                                     <outlet property="delegate" destination="FeM-Bs-u6g" id="qqG-ah-Gm8"/>
                                 </connections>
                             </tableView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="zjc-vH-K4w">
-                                <rect key="frame" x="0.0" y="299" width="414" height="482"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" id="d28-Ia-fWn" customClass="UnicornView" customModule="Astrikal_s_Compendium" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="367" width="414" height="161"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <color key="tintColor" red="1" green="0.038566588089999999" blue="0.11995453120000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0SW-VL-t0c">
+                                <rect key="frame" x="36" y="100" width="378" height="40"/>
+                                <fontDescription key="fontDescription" name="Vecna-Italic" family="Vecna" pointSize="36"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="0SW-VL-t0c" firstAttribute="leading" secondItem="1iz-9b-s89" secondAttribute="leading" constant="36" id="1Vl-M7-jAZ"/>
                             <constraint firstAttribute="trailing" secondItem="nyp-WG-QIB" secondAttribute="trailing" id="8Zy-QJ-0U0"/>
-                            <constraint firstItem="nyp-WG-QIB" firstAttribute="top" secondItem="zQw-IE-m3f" secondAttribute="top" id="FyL-Y3-oDN"/>
+                            <constraint firstItem="nyp-WG-QIB" firstAttribute="top" secondItem="0SW-VL-t0c" secondAttribute="bottom" constant="12" id="Gf1-7K-ogG"/>
                             <constraint firstAttribute="bottom" secondItem="nyp-WG-QIB" secondAttribute="bottom" id="IEY-EL-Eck"/>
                             <constraint firstItem="nyp-WG-QIB" firstAttribute="leading" secondItem="zQw-IE-m3f" secondAttribute="leading" id="awU-Wz-qzK"/>
+                            <constraint firstItem="0SW-VL-t0c" firstAttribute="trailing" secondItem="1iz-9b-s89" secondAttribute="trailing" id="pon-Hc-xl2"/>
+                            <constraint firstItem="0SW-VL-t0c" firstAttribute="top" secondItem="1iz-9b-s89" secondAttribute="top" constant="12" id="qNV-3T-nam"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1iz-9b-s89"/>
                     </view>
                     <navigationItem key="navigationItem" id="G6p-xv-eDF"/>
                     <connections>
-                        <outlet property="monstaImageView" destination="zjc-vH-K4w" id="nua-Nf-9aS"/>
+                        <outlet property="monstaImageView" destination="8FU-zk-fqC" id="dFz-Wi-pxc"/>
+                        <outlet property="monstaName" destination="0SW-VL-t0c" id="TZK-wS-Koo"/>
                         <outlet property="monstaTableView" destination="nyp-WG-QIB" id="64I-S8-p6x"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l2b-nG-1dZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1711.5942028985507" y="-945.53571428571422"/>
+            <point key="canvasLocation" x="889.85507246376824" y="-1720.3125"/>
         </scene>
     </scenes>
 </document>

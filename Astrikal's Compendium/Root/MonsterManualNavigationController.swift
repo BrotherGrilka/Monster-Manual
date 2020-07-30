@@ -7,14 +7,21 @@
 //
 
 import UIKit
+import Network
 
 enum Encounter {
     case CoreDataError(CoreDataError)
-    case HiManny
+    case AdventureError(AdventureError)
+    case NetworkError(NetworkError)
     
     func recordEncounter() {
         print(self)
     }
+}
+
+enum AdventureError:Error {
+    case GetMonstersError(Error)
+    case GetMonstersForMonsterIndex(Error)
 }
 
 enum CompendiumError:Error {
@@ -27,9 +34,33 @@ protocol Scribe {
 }
 
 class MonsterManualNavigationController: UINavigationController, Scribe {
+    let monitor = NWPathMonitor()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        monitor.pathUpdateHandler = { path in
+            if path.status == .satisfied {
+                print("We're connected!")
+            } else {
+                print("No connection.")
+            }
+
+            print(path.isExpensive)
+        }
+        
+        let queue = DispatchQueue(label: "Monitor")
+        monitor.start(queue: queue)
+     
+        UITabBarItem.appearance().setTitleTextAttributes([
+            NSAttributedString.Key.font: UIFont(name: "QuentinCaps", size: 16)!,
+            NSAttributedString.Key.foregroundColor: UIColor.orange()
+        ], for: .normal)
+        
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont(name: "QuentinCaps", size: 16)!,
+            NSAttributedString.Key.foregroundColor: UIColor.orange()
+        ]
     }
     
     func location() {

@@ -2,13 +2,12 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15702" systemVersion="18G3020" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Action" representedClassName="Action" syncable="YES" codeGenerationType="class">
         <attribute name="attack_bonus" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="damage_dice" optional="YES" attributeType="String"/>
         <attribute name="desc" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="attacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Attack" inverseName="action" inverseEntity="Attack"/>
         <relationship name="damage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Damage" inverseName="action" inverseEntity="Damage"/>
         <relationship name="dc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dc" inverseName="action" inverseEntity="Dc"/>
-        <relationship name="monsta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monsta" inverseName="legendary_actions" inverseEntity="Monsta">
+        <relationship name="monsta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monsta" inverseName="actions" inverseEntity="Monsta">
             <userInfo>
                 <entry key="isParent" value="true"/>
             </userInfo>
@@ -23,7 +22,7 @@
                 <entry key="isParent" value="true"/>
             </userInfo>
         </relationship>
-        <relationship name="damage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage" inverseName="attack" inverseEntity="Damage"/>
+        <relationship name="damage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Damage" inverseName="attack" inverseEntity="Damage"/>
         <relationship name="dc" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Dc" inverseName="attack" inverseEntity="Dc"/>
     </entity>
     <entity name="Condition_Immunity" representedClassName="Condition_Immunity" parentEntity="Type" syncable="YES" codeGenerationType="class">
@@ -46,10 +45,7 @@
                 <entry key="isParent" value="true"/>
             </userInfo>
         </relationship>
-        <relationship name="damage_immunities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage_Immunity" inverseName="damage" inverseEntity="Damage_Immunity"/>
-        <relationship name="damage_resistances" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage_Resistance" inverseName="damage" inverseEntity="Damage_Resistance"/>
         <relationship name="damage_type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage_Type" inverseName="damage" inverseEntity="Damage_Type"/>
-        <relationship name="damage_vulnerabilities" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage_Vulnerability" inverseName="damage" inverseEntity="Damage_Vulnerability"/>
         <relationship name="monsta" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Monsta" inverseName="damage" inverseEntity="Monsta">
             <userInfo>
                 <entry key="isParent" value="true"/>
@@ -59,36 +55,8 @@
             <entry key="isParent" value="true"/>
         </userInfo>
     </entity>
-    <entity name="Damage_Immunity" representedClassName="Damage_Immunity" syncable="YES" codeGenerationType="class">
-        <attribute name="immunities" optional="YES" attributeType="String"/>
-        <relationship name="damage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Damage" inverseName="damage_immunities" inverseEntity="Damage">
-            <userInfo>
-                <entry key="isParent" value="true"/>
-            </userInfo>
-        </relationship>
-    </entity>
-    <entity name="Damage_Resistance" representedClassName="Damage_Resistance" syncable="YES" codeGenerationType="class">
-        <attribute name="resistances" optional="YES" attributeType="String"/>
-        <relationship name="damage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Damage" inverseName="damage_resistances" inverseEntity="Damage">
-            <userInfo>
-                <entry key="isParent" value="true"/>
-            </userInfo>
-        </relationship>
-    </entity>
     <entity name="Damage_Type" representedClassName="Damage_Type" parentEntity="Type" syncable="YES" codeGenerationType="class">
-        <relationship name="damage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage" inverseName="damage_type" inverseEntity="Damage">
-            <userInfo>
-                <entry key="isParent" value="true"/>
-            </userInfo>
-        </relationship>
-    </entity>
-    <entity name="Damage_Vulnerability" representedClassName="Damage_Vulnerability" syncable="YES" codeGenerationType="class">
-        <attribute name="vulnerabilities" optional="YES" attributeType="String"/>
-        <relationship name="damage" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Damage" inverseName="damage_vulnerabilities" inverseEntity="Damage">
-            <userInfo>
-                <entry key="isParent" value="true"/>
-            </userInfo>
-        </relationship>
+        <relationship name="damage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage" inverseName="damage_type" inverseEntity="Damage"/>
     </entity>
     <entity name="Dc" representedClassName="Dc" syncable="YES" codeGenerationType="class">
         <attribute name="dc_value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -119,7 +87,7 @@
         <attribute name="count" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
-        <relationship name="option" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="from" inverseEntity="Option"/>
+        <relationship name="multiattack" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Multiattack" inverseName="froms" inverseEntity="Multiattack"/>
     </entity>
     <entity name="Legendary_Action" representedClassName="Legendary_Action" parentEntity="Action" syncable="YES" codeGenerationType="class">
         <attribute name="label" optional="YES" attributeType="String"/>
@@ -130,6 +98,9 @@
         <attribute name="challenge_rating" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="charisma" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="constitution" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="damage_immunities" optional="YES" attributeType="String"/>
+        <attribute name="damage_resistances" optional="YES" attributeType="String"/>
+        <attribute name="damage_vulnerabilities" optional="YES" attributeType="String" customClassName="DamageVulnerabilities"/>
         <attribute name="dexterity" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="hit_dice" optional="YES" attributeType="String"/>
         <attribute name="hit_points" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -137,22 +108,30 @@
         <attribute name="intelligence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="languages" optional="YES" attributeType="String"/>
         <attribute name="last_encounter" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="name" optional="YES" attributeType="String">
+            <userInfo>
+                <entry key="monstaName" value="true"/>
+            </userInfo>
+        </attribute>
         <attribute name="size" optional="YES" attributeType="String"/>
         <attribute name="strength" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="subtype" optional="YES" attributeType="String"/>
         <attribute name="type" optional="YES" attributeType="String"/>
         <attribute name="url" optional="YES" attributeType="String"/>
         <attribute name="wisdom" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="actions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Action"/>
+        <relationship name="actions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Action" inverseName="monsta" inverseEntity="Action"/>
         <relationship name="condition_immunities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Condition_Immunity" inverseName="monsta" inverseEntity="Condition_Immunity"/>
         <relationship name="damage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Damage" inverseName="monsta" inverseEntity="Damage"/>
-        <relationship name="legendary_actions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Legendary_Action" inverseName="monsta" inverseEntity="Action"/>
+        <relationship name="legendary_actions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Legendary_Action"/>
         <relationship name="proficiencies" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Proficiency" inverseName="monsta" inverseEntity="Proficiency"/>
         <relationship name="reactions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Reaction" inverseName="monsta" inverseEntity="Reaction"/>
         <relationship name="senses" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sense" inverseName="monsta" inverseEntity="Sense"/>
         <relationship name="special_abilities" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Special_Ability" inverseName="monsta" inverseEntity="Special_Ability"/>
         <relationship name="speed" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Speed" inverseName="monsta" inverseEntity="Speed"/>
+    </entity>
+    <entity name="Multiattack" representedClassName="Multiattack" syncable="YES" codeGenerationType="class">
+        <relationship name="froms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="From" inverseName="multiattack" inverseEntity="From"/>
+        <relationship name="option" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Option" inverseName="multiattacks" inverseEntity="Option"/>
     </entity>
     <entity name="Option" representedClassName="Option" syncable="YES" codeGenerationType="class">
         <attribute name="choose" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
@@ -161,7 +140,7 @@
                 <entry key="isParent" value="true"/>
             </userInfo>
         </relationship>
-        <relationship name="from" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="From" inverseName="option" inverseEntity="From"/>
+        <relationship name="multiattacks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Multiattack" inverseName="option" inverseEntity="Multiattack"/>
     </entity>
     <entity name="Proficiency" representedClassName="Proficiency" syncable="YES" codeGenerationType="class">
         <attribute name="name" optional="YES" attributeType="String"/>
@@ -223,7 +202,11 @@
         <attribute name="dice" optional="YES" attributeType="String"/>
         <attribute name="min_value" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="times" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="type" optional="YES" attributeType="String">
+            <userInfo>
+                <entry key="label" value="Type"/>
+            </userInfo>
+        </attribute>
         <relationship name="action" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Action" inverseName="usage" inverseEntity="Action"/>
         <relationship name="special_ability" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Special_Ability" inverseName="usage" inverseEntity="Special_Ability">
             <userInfo>
@@ -232,26 +215,24 @@
         </relationship>
     </entity>
     <elements>
-        <element name="Action" positionX="-18.19140625" positionY="-393.23828125" width="128" height="28"/>
+        <element name="Action" positionX="-18.19140625" positionY="-393.23828125" width="128" height="178"/>
+        <element name="Attack" positionX="-220.859375" positionY="-93.1875" width="128" height="103"/>
         <element name="Condition_Immunity" positionX="-246.67578125" positionY="-501.1875" width="128" height="28"/>
         <element name="Damage" positionX="-188.4375" positionY="-449.125" width="128" height="28"/>
-        <element name="Damage_Immunity" positionX="-92.23828125" positionY="-654.59375" width="128" height="28"/>
-        <element name="Damage_Resistance" positionX="28.328125" positionY="-602.98828125" width="128" height="28"/>
-        <element name="Damage_Vulnerability" positionX="109.390625" positionY="-558.765625" width="128" height="28"/>
-        <element name="Monsta" positionX="-454.6875" positionY="-418.0234375" width="128" height="463"/>
+        <element name="Damage_Type" positionX="-252" positionY="-477" width="128" height="28"/>
+        <element name="Dc" positionX="-49.33203125" positionY="-92.4921875" width="128" height="28"/>
+        <element name="Dc_Type" positionX="106.3828125" positionY="-225.80078125" width="128" height="58"/>
+        <element name="From" positionX="365.80859375" positionY="-313.80859375" width="128" height="28"/>
+        <element name="Legendary_Action" positionX="-301.31640625" positionY="-632.09375" width="128" height="58"/>
+        <element name="Monsta" positionX="-454.6875" positionY="-418.0234375" width="128" height="508"/>
+        <element name="Option" positionX="167.23046875" positionY="-314.1328125" width="128" height="28"/>
         <element name="Proficiency" positionX="-195.03125" positionY="-23.63671875" width="128" height="28"/>
         <element name="Reaction" positionX="-196.625" positionY="21.89453125" width="128" height="28"/>
         <element name="Sense" positionX="-194.48046875" positionY="66.609375" width="128" height="28"/>
         <element name="Special_Ability" positionX="-209.515625" positionY="120.04296875" width="128" height="28"/>
         <element name="Speed" positionX="-284.890625" positionY="174.83984375" width="128" height="28"/>
-        <element name="Usage" positionX="186.90625" positionY="121.0078125" width="128" height="28"/>
-        <element name="Option" positionX="167.23046875" positionY="-314.1328125" width="128" height="28"/>
-        <element name="Legendary_Action" positionX="-301.31640625" positionY="-632.09375" width="128" height="58"/>
-        <element name="Dc" positionX="-49.33203125" positionY="-92.4921875" width="128" height="28"/>
-        <element name="Attack" positionX="-220.859375" positionY="-93.1875" width="128" height="28"/>
-        <element name="Dc_Type" positionX="106.3828125" positionY="-225.80078125" width="128" height="28"/>
         <element name="Type" positionX="184.734375" positionY="-462.9609375" width="128" height="28"/>
-        <element name="Damage_Type" positionX="364.19140625" positionY="-428.75" width="128" height="28"/>
-        <element name="From" positionX="365.80859375" positionY="-313.80859375" width="128" height="28"/>
+        <element name="Usage" positionX="186.90625" positionY="121.0078125" width="128" height="133"/>
+        <element name="Multiattack" positionX="-243" positionY="-459" width="128" height="28"/>
     </elements>
 </model>

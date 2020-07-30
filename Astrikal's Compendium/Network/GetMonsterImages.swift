@@ -36,6 +36,23 @@ final class GetMonsterImages: Network {
             dataCallback(data)
         })
     }
+    
+    static func monsterImages(monster: String, imageView: UIImageView) {
+        _ = GetMonsterImages(forMonster: monster, success: { (data) in
+            do {
+                let json = try JSONSerialization.jsonObject(with: data!) as? [String:Any]
+                
+                if let itemsArray = json!["items"] as? [AnyObject] {
+                    let linkArray = itemsArray.map { $0["link"] }
+                    let dieRoll = Int.random(in: 0 ..< linkArray.count)
+                    
+                    if let imageLink = linkArray[dieRoll] as? String {
+                        imageView.downloadImage(string: imageLink)
+                    }
+                }
+            } catch {}
+        }, failure: { _ in  })
+    }
 }
 
 extension UIImageView {
@@ -43,15 +60,17 @@ extension UIImageView {
         let imageURL = URL(string: string)
         
         DispatchQueue.global().async {
-            guard let imageData = try? Data(contentsOf: imageURL!) else {
-                // error
-                return
-            }
-
-            let image = UIImage(data: imageData)
-            
-            DispatchQueue.main.async {
-                self.image = image
+            do {
+                let imageData = try Data(contentsOf: imageURL!)
+                let image = UIImage(data: imageData)
+                
+                DispatchQueue.main.async {
+                    self.image = image
+                }
+            } catch {
+                if let scribe = UIApplication.shared.windows.first?.rootViewController as? Scribe {
+                    scribe.recordInScroll(encounter: .NetworkError(.ImageDownloadError(error)))
+                }
             }
         }
     }

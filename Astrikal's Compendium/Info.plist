@@ -34,7 +34,12 @@
 	</dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Souvenir Demi.ttf</string>
+		<string>VecnaItalic-e44p.ttf</string>
+		<string>VecnaBold-4YY4.ttf</string>
+		<string>VecnaBoldItalic-011d.ttf</string>
 		<string>QUENCRG_.TTF</string>
+		<string>Vecna-oppx.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

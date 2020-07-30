@@ -14,6 +14,7 @@ enum NetworkError:Error {
     case GetMonsterFailure(Error)
     case JSONSerializationError(Error)
     case LocksmithError(Error)
+    case ImageDownloadError(Error)
     init?(networkError: NetworkError) {
         self = networkError
     }
